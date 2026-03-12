@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Apply for {{ job.title }}</h3>
+
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="resume" class="form-control mb-2">
+    <button class="btn btn-primary">Upload & Match</button>
+</form>
+{% endblock %}

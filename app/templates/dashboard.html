@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Available Jobs</h2>
+
+{% for job in jobs %}
+<div class="card mb-3 p-3">
+    <h5>{{ job.title }}</h5>
+    <p>{{ job.description }}</p>
+    <a href="/upload/{{ job.id }}" class="btn btn-dark">Apply</a>
+</div>
+{% endfor %}
+
+<a href="/logout" class="btn btn-danger">Logout</a>
+
+{% endblock %}

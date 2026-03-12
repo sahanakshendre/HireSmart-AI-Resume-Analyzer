@@ -1,0 +1,22 @@
+Raj Kumar
+Email: raj@email.com
+Phone: 9876543210
+
+Career Objective
+To work as a Web Developer and build modern web applications.
+
+Skills
+HTML
+CSS
+JavaScript
+SQL
+
+Education
+B.E Computer Science
+
+Projects
+Student Record Management System using Python
+Online Job Portal using Flask
+
+Experience
+Fresher

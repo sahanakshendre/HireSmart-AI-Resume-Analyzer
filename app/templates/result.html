@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Resume Match Result</h2>
+
+<div class="card p-4 mt-3" id="report">
+
+<h4>Job Role: {{ job.title }}</h4>
+
+<h5>Match Score: {{ score }}%</h5>
+
+<div class="progress mb-3">
+<div class="progress-bar bg-success" style="width: {{ score }}%">
+{{ score }}%
+</div>
+</div>
+
+<h5>Resume Strength: {{ resume_strength }}</h5>
+
+<hr>
+
+<h5>Matched Skills</h5>
+
+{% if matched_skills %}
+<ul>
+{% for skill in matched_skills %}
+<li>{{ skill }}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No matching skills found</p>
+{% endif %}
+
+<hr>
+
+<h5>Missing Skills</h5>
+
+{% if missing_skills %}
+<ul>
+{% for skill in missing_skills %}
+<li>{{ skill }}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No missing skills</p>
+{% endif %}
+
+<hr>
+
+<h4>Top Job Recommendations</h4>
+
+{% if top_jobs %}
+
+<ul>
+
+{% for item in top_jobs %}
+
+<li>
+<strong>{{ item.job.title }}</strong>  
+Match Score: {{ item.score }}%
+</li>
+
+{% endfor %}
+
+</ul>
+
+{% else %}
+
+<p>No recommendations found</p>
+
+{% endif %}
+
+<br>
+
+<canvas id="skillChart" width="400" height="200"></canvas>
+
+<br>
+
+</div>
+
+<!-- DOWNLOAD REPORT BUTTON -->
+<button onclick="downloadPDF()" class="btn btn-success">
+Download Resume Report
+</button>
+
+<a href="/dashboard" class="btn btn-secondary">Back to Dashboard</a>
+
+
+<!-- Chart JS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+var ctx = document.getElementById('skillChart').getContext('2d');
+
+var chart = new Chart(ctx, {
+type: 'bar',
+
+data: {
+labels: ['Matched Skills','Missing Skills'],
+datasets: [{
+label: 'Skill Analysis',
+data: [{{ matched_skills|length }}, {{ missing_skills|length }}]
+}]
+},
+
+options: {
+scales: {
+y: {
+beginAtZero: true
+}
+}
+}
+
+});
+
+</script>
+
+
+<!-- HTML to PDF Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script>
+
+function downloadPDF() {
+
+const element = document.getElementById("report");
+
+const opt = {
+margin: 0,
+filename: 'HireSmart_Report.pdf',
+image: { type: 'jpeg', quality: 1 },
+html2canvas: { scale: 2, scrollY: 0 },
+jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+pagebreak: { mode: ['avoid-all'] }
+};
+
+html2pdf().set(opt).from(element).save();
+
+}
+
+</script>
+
+{% endblock %}
