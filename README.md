@@ -48,17 +48,17 @@ Libraries
 
 HireSmart
 │
-├── .venv/                     # Virtual environment
+├── .venv/                    
 │
 ├── app/
 │   │
-│   ├── __pycache__/           # Python cache files
+│   ├── __pycache__/           
 │   │
 │   ├── static/
 │   │   ├── css/
 │   │   │   └── style.css
 │   │   │
-│   │   └── uploads/           # Uploaded resumes
+│   │   └── uploads/           
 │   │
 │   ├── templates/
 │   │   ├── base.html
@@ -69,45 +69,45 @@ HireSmart
 │   │   ├── result.html
 │   │   └── upload_resume.html
 │   │
-│   ├── __init__.py            # Flask app initialization
-│   ├── config.py              # Configuration settings
-│   ├── models.py              # Database models
-│   ├── resume_matcher.py      # Resume analysis logic
-│   ├── routes.py              # Application routes
-│   ├── skills_db.py           # Job roles & skill database
-│   └── utils.py               # Helper functions
+│   ├── __init__.py            
+│   ├── config.py              
+│   ├── models.py              
+│   ├── resume_matcher.py      
+│   ├── routes.py              
+│   ├── skills_db.py           
+│   └── utils.py               
 │
-├── uploads/                   # Resume storage
+├── uploads/                   
 │
-├── Screenshots/               # Project screenshots
+├── Screenshots/               
 │   ├── Jobs.png
 │   ├── Resume Result.png
 │   ├── Tips.png
 │   ├── Upload Resume.png
 │   └── About.png
 │
-├── README.md                  # Project documentation
-├── requirements.txt           # Python dependencies
-└── run.py                     # Application entry point
+├── README.md                  
+├── requirements.txt           
+└── run.py                     
 
 
 
 ## Installation
 
-Clone the repository
+### Clone the repository
 
 
 git clone https://github.com/yourusername/hiresmart.git
 cd hiresmart
 
 
-Create virtual environment
+### Create virtual environment
 
 
 python -m venv venv
 
 
-Activate environment
+### Activate environment
 
 Windows
 
@@ -115,19 +115,19 @@ Windows
 venv\Scripts\activate
 
 
-Install dependencies
+### Install dependencies
 
 
 pip install -r requirements.txt
 
 
-Run the application
+### Run the application
 
 
 python run.py
 
 
-Open in browser
+### Open in browser
 
 
 http://127.0.0.1:5000
@@ -144,7 +144,6 @@ http://127.0.0.1:5000
 5. The system calculates a match score.
 6. Missing skills and job recommendations are displayed.
 
-## Screenshots
 
 ## Screenshots
 
