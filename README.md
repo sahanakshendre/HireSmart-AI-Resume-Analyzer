@@ -45,7 +45,7 @@ Libraries
 
 ## Project Structure
 
-
+```
 HireSmart
 │
 ├── .venv/                    
@@ -89,7 +89,7 @@ HireSmart
 ├── README.md                  
 ├── requirements.txt           
 └── run.py                     
-
+```
 
 
 ## Installation
